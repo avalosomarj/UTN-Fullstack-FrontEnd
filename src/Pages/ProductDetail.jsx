@@ -47,7 +47,7 @@ const ProductDetail = () => {
           <div className='productDescription'>
             <h3>{productFound.nombre}</h3>
             <div className='productInfo'>
-              <img src={URL_API + '/img/' + productFound.img} alt={productFound.nombre} className='imgPreview'/>
+              <img src={productFound.img} alt={productFound.nombre} className='imgPreview'/>
               <div className='infoTxt'>
                 <h3>Precio: ${productFound.precio.toLocaleString('es-AR')}</h3>
                 <h3>Stock: {productFound.stock} un.</h3>

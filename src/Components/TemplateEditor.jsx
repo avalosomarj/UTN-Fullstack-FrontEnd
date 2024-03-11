@@ -17,16 +17,30 @@ const TemplateEditor = ({id, nombre, precio, stock, descripcion, img}) => {
   const handleChangeFile = (e) => {
     if(e.target.files[0]){
       setFile(e.target.files[0])
-      formValues.img = e.target.files[0].name
     }
     else{
       setFile(null)
-      formValues.img = 'psi.webp'
+      formValues.img = 'https://res.cloudinary.com/dz99fihcj/image/upload/v1710187541/utn-fullstack-developer/psi.jpg'
     }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+
+    if(file){
+      const formData = new FormData()
+      formData.append('file', file)
+      formData.append('upload_preset', 'utn-fullstack-developer')
+
+      await fetch('https://api.cloudinary.com/v1_1/dz99fihcj/image/upload', {
+      method: 'POST',
+      body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        formValues.img = data.url
+      })
+    }
 
     const response = await fetch(URL_API + '/api/products/' + id, {
       method: 'PUT',
@@ -36,17 +50,6 @@ const TemplateEditor = ({id, nombre, precio, stock, descripcion, img}) => {
     .then(res => res.json())
 
     if(response.status == 200){
-      if(file){
-        const formData = new FormData()
-        formData.append('file', file)
-  
-        const sendFile = await fetch(URL_API + '/api/products/upload', {
-        method: 'POST',
-        body: formData
-        })
-        .then(res => res.json())
-      }
-
       navigate('/product/detail/' + id)
     }
     else if(response.status == 400){
@@ -62,7 +65,7 @@ const TemplateEditor = ({id, nombre, precio, stock, descripcion, img}) => {
         <br />
         <div className='dataContainer'>
           <div className='dataContainerImg'>
-            <img src={file ? URL.createObjectURL(file) : URL_API + '/img/' + formValues.img} alt='test' className='imgPreview' />
+            <img src={file ? URL.createObjectURL(file) : formValues.img} alt='test' className='imgPreview' />
             <label htmlFor='file' className='btnGlobal' style={{fontSize: '12px'}}>Cambiar</label>
             <input id='file' type='file' onChange={handleChangeFile} accept='image/*' hidden />
             <br />

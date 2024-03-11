@@ -34,7 +34,10 @@ const Home = () => {
       {
         listProducts.length == 0
         ?
-        <span>No hay resultados. Intente usar otros términos o verificar que no tenga errores ortográficos.</span>
+        <div className='productsFound'>
+          <Link to={'/product/new/'}><button className='btnGlobal'>Nuevo Producto</button></Link>
+          <span>No hay resultados. Intente usar otros términos o verificar que no tenga errores ortográficos.</span>
+        </div>
         :
         <>
           <div className='productsFound'>
