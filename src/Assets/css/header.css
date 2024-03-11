@@ -1,0 +1,35 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 5vw;
+    height: 80px;
+}
+
+header .logoHeader{
+    font-size: 50px;
+    animation: rainbow 1s linear infinite;
+}
+
+@keyframes rainbow{
+    0%, 100%{
+        color: var(--primaryDarkColor);
+    }
+    50%{
+        color: var(--secondaryDarkColor);
+    }
+}
+
+header .iconsBox{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+header .iconsBox .iconStyle{
+    font-size: 25px;
+}
+
+header .iconMode{
+    display: none;
+}
