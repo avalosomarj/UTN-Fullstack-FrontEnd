@@ -2,13 +2,23 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0px 5vw;
+    margin-bottom: 20px;
     height: 80px;
 }
 
 header .logoHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header .logoHeader a{
+    height: 45px;
+}
+
+header .logoHeader .iconHeader{
     font-size: 50px;
-    animation: rainbow 1s linear infinite;
+    animation: rainbow 2s linear infinite;
 }
 
 @keyframes rainbow{

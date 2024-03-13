@@ -36,7 +36,7 @@ const Home = () => {
         ?
         <div className='productsFound'>
           <Link to={'/product/new/'}><button className='btnGlobal'>Nuevo Producto</button></Link>
-          <span>No hay resultados. Intente usar otros términos o verificar que no tenga errores ortográficos.</span>
+          <span>No hay resultados. Revise la ortografía o intente usar otras palabras.</span>
         </div>
         :
         <>

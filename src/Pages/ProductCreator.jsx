@@ -41,7 +41,7 @@ const ProductCreator = () => {
       })
       .then(res => res.json())
       .then(data => {
-        formValues.img = data.url
+        formValues.img = data.secure_url
       })
     }
 
@@ -66,7 +66,7 @@ const ProductCreator = () => {
         <br />
         <div className='dataContainer'>
           <div className='dataContainerImg'>
-            <img src={file ? URL.createObjectURL(file) : formValues.img} alt='test' className='imgPreview' />
+            <img src={file ? URL.createObjectURL(file) : formValues.img} alt={formValues.nombre} className='imgPreview' />
             <label htmlFor='file' className='btnGlobal' style={{fontSize: '12px'}}>Cambiar</label>
             <input id='file' type='file' onChange={handleChangeFile} accept='image/*' hidden />
             <br />

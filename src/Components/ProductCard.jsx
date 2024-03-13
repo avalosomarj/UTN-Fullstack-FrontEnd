@@ -7,7 +7,7 @@ const ProductCard = ({id, nombre, img, precio, stock}) => {
       <span>{nombre}</span>
       <img src={img} alt={nombre}/>
       <h4>${precio.toLocaleString('es-AR')}</h4>
-      <span>Stock: {stock}</span>
+      <span>Stock: {stock} un.</span>
       <Link to={'/product/detail/' + id}><button className='btnGlobal'>Ver Más</button></Link>
     </div>
   )

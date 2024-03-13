@@ -1,8 +1,22 @@
-# React + Vite
+﻿Presentación
+-
+Hola!
+Este es el proyecto de frontend diseñado en complemento para presentar como trabajo final de la Diplomatura en Programación Web - Full Stack Developer dictada por Diseño Multimedial de UTN Buenos Aires donde puse en práctica muchos de los conocimientos adquiridos durante la cursada.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tecnologías usadas
+-
+Hice uso de React nuevamente y aprendí algunas funcionalidades nuevas de frontend como
 
-Currently, two official plugins are available:
+ - Manejo de *fetch* y *promises* para enviar y recibir información de fuentes externas
+ - Guardado de información lado cliente usando *LocalStorage*
+ - Redirecciones usando el hook *useNavigate* de la librería react-router-dom
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deploy
+-
+Para el despliegue de la app utilicé los servicios gratuitos de [Vercel](https://vercel.com/) para el frontend y [Cloudinary](https://cloudinary.com/) para el alojamiento de las imágenes.
+
+Extras
+-
+Por mi cuenta leí mucha documentación, aprendí e implementé
+- Uso de objeto tipo FormData() para enviar archivos cargados en formularios a través de inputs tipo file
+- Subida de imágenes a servicios de Cloud Object Storage y obtención de enlace desde la API

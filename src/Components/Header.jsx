@@ -6,7 +6,10 @@ import { BiSolidCat } from 'react-icons/bi'
 const Header = () => {
   return (
     <header>
-      <Link to={'/home'}><BiSolidCat className='logoHeader'/></Link>
+      <div className='logoHeader'>
+        <Link to={'/home'}><BiSolidCat className='iconHeader'/></Link>
+        <span>Inicio</span>
+      </div>
     </header>
   )
 }
