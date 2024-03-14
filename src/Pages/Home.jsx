@@ -26,35 +26,28 @@ const Home = () => {
   }, [searchString])
 
   return(
-    <div className='homePage'>
-      <div className='searchBox'>
-        <input name='searcher' type='text' placeholder='Busca tu producto aquí' value={searchString} onChange={handleFilterProduct} />
-        <TbShoppingBagSearch className='searchIcon' />
-      </div>
-      {
-        listProducts.length == 0
-        ?
-        <div className='productsFound'>
-          <Link to={'/product/new/'}><button className='btnGlobal'>Nuevo Producto</button></Link>
-          <span>No hay resultados. Revise la ortografía o intente usar otras palabras.</span>
+    <>
+      <Link to={'/product/new/'}><button className='btnGlobal btnFloat'>Nuevo Producto</button></Link>
+      <div className='homePage'>
+        <div className='searchBox'>
+          <input name='searcher' type='text' placeholder='Busca tu producto aquí' value={searchString} onChange={handleFilterProduct} />
+          <TbShoppingBagSearch className='searchIcon' />
         </div>
-        :
-        <>
-          <div className='productsFound'>
-            {(listProducts.length > 1 && searchString != '') && `Se encontraron ${listProducts.length} resultados`}
-            <Link to={'/product/new/'}><button className='btnGlobal'>Nuevo Producto</button></Link>
-          </div>
-          <div className='productList'>
-            {
-              listProducts.map(({id, nombre, img, precio, stock}) => (
-                <ProductCard id={id} nombre={nombre} img={img} precio={precio} stock={stock} key={id}/>
-              ))
-            }
-          </div>
-        </>
-      }
-      
-    </div>
+        {
+          listProducts.length == 0
+          ? <span>No hay resultados. Revise la ortografía o intente usar otras palabras.</span>
+          : searchString != '' && <span>Se encontraron {listProducts.length} resultados</span>
+        }
+        <div className='productList'>
+          {
+            listProducts.length > 0 &&
+            listProducts.map(({ id, nombre, img, precio, stock }) => (
+              <ProductCard id={id} nombre={nombre} img={img} precio={precio} stock={stock} key={id} />
+            ))
+          }
+        </div>
+      </div>
+    </>
   )
 }
 

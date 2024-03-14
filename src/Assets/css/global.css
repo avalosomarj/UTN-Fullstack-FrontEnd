@@ -46,6 +46,13 @@ a, a:visited{
     background: linear-gradient(to top, var(--primaryDarkColor), var(--secondaryDarkColor));
 }
 
+.btnFloat{
+    position: fixed;
+    top: calc(100vh - 50px);
+    right: 10px;
+    z-index: 1;
+}
+
 .userCredentialsBg{
     display: flex;
     align-items: center;
@@ -92,13 +99,13 @@ a, a:visited{
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    gap: 10px;
 }
 
 .homePage .searchBox{
     display: flex;
     align-items: center;
     position: relative;
-    margin-bottom: 15px;
 }
 
 .homePage .searchBox input{
@@ -118,19 +125,12 @@ a, a:visited{
     position: absolute;
 }
 
-.homePage .productsFound{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
 .homePage .productList{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 30px;
-    margin: 30px 30px;
+    margin: 20px;
 }
 
 .Card{
@@ -151,6 +151,13 @@ a, a:visited{
 .Card img{
     width: 150px;
     height: 150px;
+}
+
+.Card .spanTitle{
+    display: flex;
+    align-items: center;
+    width: 210px;
+    height: 48px;
 }
 
 .Card span{

@@ -7,7 +7,9 @@ footer{
     padding: 5vh 5vw;
     margin-top: 20px;
     background: rgb(70, 70, 70);
-    min-height: 170px;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
 }
 
 footer svg{
