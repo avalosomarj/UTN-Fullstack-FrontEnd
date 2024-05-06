@@ -179,11 +179,10 @@ a, a:visited{
 
 .productDescription .productInfo{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-    width: 50%;
 }
 
 .productDescription .productInfo .infoTxt{
@@ -205,6 +204,10 @@ a, a:visited{
     width: 90%;
     white-space: pre-wrap;
     text-align: justify;
+}
+
+.productDescription h3{
+    text-align: center;
 }
 
 .genericBg{

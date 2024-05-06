@@ -7,7 +7,7 @@ const ProductCreator = () => {
   verifyToken()
 
   const navigate = useNavigate()
-  const initialValues = {nombre: '', precio: '', stock: '', descripcion: '', img: 'https://res.cloudinary.com/dz99fihcj/image/upload/v1710187541/utn-fullstack-developer/psi.jpg'}
+  const initialValues = {nombre: '', precio: '', stock: '', descripcion: '', img: import.meta.env.VITE_CLOUDINARY_DEFAULTIMG}
   const [formValues, setFormValues] = useState(initialValues)
   const [file, setFile] = useState(null)
 
@@ -23,7 +23,7 @@ const ProductCreator = () => {
     }
     else{
       setFile(null)
-      formValues.img = 'https://res.cloudinary.com/dz99fihcj/image/upload/v1710187541/utn-fullstack-developer/psi.jpg'
+      formValues.img = import.meta.env.VITE_CLOUDINARY_DEFAULTIMG
     }
   }
 
@@ -33,9 +33,9 @@ const ProductCreator = () => {
     if(file){
       const formData = new FormData()
       formData.append('file', file)
-      formData.append('upload_preset', 'utn-fullstack-developer')
+      formData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_PRESETNAME)
 
-      await fetch('https://api.cloudinary.com/v1_1/dz99fihcj/image/upload', {
+      await fetch('https://api.cloudinary.com/v1_1/' + import.meta.env.VITE_CLOUDINARY_CLOUDNAME + '/image/upload', {
       method: 'POST',
       body: formData
       })
